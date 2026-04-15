@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.pharmasystem.ui.PharmacistApprovalController"
+      styleClass="root"
+      stylesheets="@pharx.css"
+      prefWidth="420"
+      spacing="0"
+      style="-fx-background-color: #F4F6FA;">
+
+    <!-- Header -->
+    <HBox style="-fx-background-color: #D97706; -fx-padding: 18 24 18 24;" alignment="CENTER_LEFT" spacing="12">
+        <VBox spacing="2">
+            <Label text="Pharmacist Approval Required"
+                   style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Label text="This sale contains prescription-only medicines"
+                   style="-fx-text-fill: rgba(255,255,255,0.75); -fx-font-size: 11px;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Form -->
+    <VBox style="-fx-padding: 28 28 24 28;" spacing="18">
+
+        <Label text="A licensed pharmacist must authorise this transaction." styleClass="label-muted" wrapText="true"/>
+
+        <VBox spacing="6">
+            <Label text="PHARMACIST USERNAME" styleClass="field-label"/>
+            <TextField fx:id="username" promptText="Enter username" styleClass="form-field" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label text="PASSWORD" styleClass="field-label"/>
+            <PasswordField fx:id="password" promptText="Enter password" styleClass="form-field" maxWidth="Infinity"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" text="" styleClass="label-error" wrapText="true"/>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 4 0 0 0;">
+            <Button text="Cancel"  styleClass="btn-secondary" onAction="#handleCancel"/>
+            <Button text="Approve Sale" styleClass="btn-primary"
+                    style="-fx-background-color: #D97706;" onAction="#handleApprove"/>
+        </HBox>
+
+    </VBox>
+
+</VBox>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.pharmasystem.ui.AddMedicineController"
+      styleClass="root"
+      stylesheets="@pharx.css"
+      prefWidth="480"
+      spacing="0"
+      style="-fx-background-color: #F4F6FA;">
+
+    <!-- Header bar with icon placeholder -->
+    <HBox style="-fx-background-color: #0A1628; -fx-padding: 18 24 18 24;" alignment="CENTER_LEFT" spacing="12">
+        <!-- Icon placeholder — replace StackPane/Label with ImageView when icon is ready -->
+        <StackPane style="-fx-background-color: #2563EB; -fx-background-radius: 7; -fx-min-width: 32; -fx-min-height: 32; -fx-max-width: 32; -fx-max-height: 32; -fx-alignment: CENTER;">
+            <Label text="+" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+        </StackPane>
+        <Label text="Add New Medicine" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="PhaRx" style="-fx-text-fill: #475569; -fx-font-size: 12px;"/>
+    </HBox>
+
+    <!-- Form body -->
+    <VBox style="-fx-padding: 28 28 24 28;" spacing="18">
+
+        <!-- Medicine Name -->
+        <VBox spacing="6">
+            <Label text="MEDICINE NAME" styleClass="field-label"/>
+            <TextField fx:id="nameField" promptText="e.g. Amoxicillin 500mg" styleClass="form-field" maxWidth="Infinity"/>
+        </VBox>
+
+        <!-- Price -->
+        <VBox spacing="6">
+            <Label text="UNIT PRICE (₱)" styleClass="field-label"/>
+            <TextField fx:id="priceField" promptText="0.00" styleClass="form-field" maxWidth="Infinity"/>
+        </VBox>
+
+        <!-- Prescription required -->
+        <CheckBox fx:id="prescriptionCheck" text="Requires Prescription (Rx)" styleClass="check-box"/>
+
+        <!-- Initial batch section -->
+        <VBox style="-fx-background-color: #F0F9FF; -fx-background-radius: 8; -fx-border-color: #BAE6FD; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 14 16 14 16;" spacing="14">
+            <Label text="INITIAL BATCH (OPTIONAL)" styleClass="field-label" style="-fx-text-fill: #0369A1;"/>
+            <Label text="Creates a tracked batch with the quantity and expiry below. Leave blank to add stock later via Manage Stock."
+                   styleClass="label-muted" wrapText="true"/>
+
+            <!-- Quantity -->
+            <VBox spacing="6">
+                <Label text="INITIAL QUANTITY" styleClass="field-label"/>
+                <TextField fx:id="quantityField" promptText="Leave blank to skip" styleClass="form-field" maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- Expiry -->
+            <VBox spacing="6">
+                <Label text="EXPIRY DATE" styleClass="field-label"/>
+                <DatePicker fx:id="expiryPicker" promptText="Select date" styleClass="date-picker" maxWidth="Infinity"/>
+                <TextField fx:id="expiryField" promptText="Or type YYYY-MM-DD" styleClass="form-field" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+
+        <!-- Error label -->
+        <Label fx:id="errorLabel" text="" styleClass="label-error" wrapText="true"/>
+
+        <!-- Action buttons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 4 0 0 0;">
+            <Button text="Cancel"       styleClass="btn-secondary" onAction="#handleCancel"/>
+            <Button text="Save Medicine" styleClass="btn-primary"   onAction="#handleSave"/>
+        </HBox>
+
+    </VBox>
+
+</VBox>

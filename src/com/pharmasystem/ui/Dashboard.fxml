@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="root"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.pharmasystem.ui.DashboardController"
+      styleClass="root"
+      stylesheets="@pharx.css"
+      prefWidth="1100" prefHeight="700">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <VBox styleClass="sidebar">
+
+        <!-- Logo / brand icon placeholder -->
+        <HBox styleClass="sidebar-logo-row" alignment="CENTER_LEFT" spacing="10">
+            <!-- Placeholder icon box — swap inner Label for ImageView when real icon is ready -->
+            <StackPane styleClass="sidebar-logo-box">
+                <Label text="Rx" styleClass="sidebar-logo-symbol"/>
+            </StackPane>
+            <Label text="PhaRx" styleClass="sidebar-brand"/>
+        </HBox>
+
+        <Label text="NAVIGATION" styleClass="sidebar-section-label"/>
+
+        <!-- Each button has a text icon placeholder; replace the emoji with a real ImageView later -->
+        <Button text="  🛒  Point of Sale"   styleClass="nav-btn" onAction="#openPOS"       maxWidth="Infinity"/>
+        <Button text="  📦  Inventory"        styleClass="nav-btn" onAction="#openInventory"  maxWidth="Infinity"/>
+        <Button text="  📋  Sales Records"    styleClass="nav-btn" onAction="#openRecords"    maxWidth="Infinity"/>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- User row -->
+        <VBox styleClass="sidebar-user-row" spacing="6">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <StackPane styleClass="sidebar-user-avatar">
+                    <Label fx:id="userAvatarLabel" text="?" styleClass="sidebar-user-name"/>
+                </StackPane>
+                <VBox spacing="1">
+                    <Label fx:id="welcomeLabel"  text="Dashboard"  styleClass="sidebar-user-name"/>
+                    <Label fx:id="userRoleLabel" text="Role"        styleClass="sidebar-user-role"/>
+                </VBox>
+            </HBox>
+            <Button text="  ✕  Sign Out" styleClass="nav-btn-danger" onAction="#handleLogout" maxWidth="Infinity"/>
+        </VBox>
+
+    </VBox>
+
+    <!-- ── Main content ───────────────────────────────────── -->
+    <VBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" styleClass="page-content" spacing="20">
+
+        <!-- Header -->
+        <VBox styleClass="page-header" spacing="4">
+            <Label text="Dashboard" styleClass="page-title"/>
+            <Label text="Overview of your pharmacy operations" styleClass="page-subtitle"/>
+        </VBox>
+
+        <!-- Notification panel — grows to fill remaining space -->
+        <VBox styleClass="card" spacing="0" VBox.vgrow="ALWAYS">
+            <VBox.margin><Insets/></VBox.margin>
+            <HBox alignment="CENTER_LEFT" spacing="12"
+                  style="-fx-padding: 18 20 14 20; -fx-border-color: transparent transparent #F1F5F9 transparent; -fx-border-width: 0 0 1 0;">
+                <Label text="Notifications" styleClass="card-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Live" styleClass="badge-amber"/>
+            </HBox>
+            <ListView fx:id="notificationList"
+                      styleClass="search-list"
+                      VBox.vgrow="ALWAYS"
+                      style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 8 12 12 12;"/>
+        </VBox>
+
+    </VBox>
+
+</HBox>

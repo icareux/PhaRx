@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.pharmasystem.ui.ReceiptController"
+      styleClass="receipt-root"
+      stylesheets="@pharx.css"
+      prefWidth="400"
+      spacing="0"
+      style="-fx-background-color: #F4F6FA;">
+
+    <!-- Header -->
+    <HBox style="-fx-background-color: #0A1628; -fx-padding: 20 24 20 24;" alignment="CENTER_LEFT" spacing="14">
+        <StackPane styleClass="sidebar-logo-box">
+            <Label text="Rx" styleClass="sidebar-logo-symbol"/>
+        </StackPane>
+        <VBox spacing="2">
+            <Label text="PhaRx"           style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Label text="Payment Summary" style="-fx-text-fill: #475569; -fx-font-size: 11px;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Receipt body -->
+    <VBox style="-fx-padding: 24 24 20 24;" spacing="16">
+
+        <!-- Meta info -->
+        <HBox alignment="CENTER_LEFT">
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                <Label fx:id="receiptDateLabel"   text="Date: —"    styleClass="label-muted"/>
+                <Label fx:id="receiptCashierLabel" text="Cashier: —" styleClass="label-muted"/>
+            </VBox>
+                <Label fx:id="receiptIdLabel"
+                       text="#—"
+                       style="-fx-background-color: #E0F2FE;
+                              -fx-text-fill: #0369A1;
+                              -fx-font-size: 11px;
+                              -fx-padding: 4 8;
+                              -fx-background-radius: 6;"/>
+        </HBox>
+
+        <!-- Divider -->
+        <Region styleClass="receipt-divider"/>
+
+        <!-- Items list -->
+        <VBox spacing="0">
+            <Label text="ITEMS" styleClass="field-label"/>
+            <Region style="-fx-pref-height: 4;"/>
+            <ListView fx:id="receiptItemsList"
+                      styleClass="search-list"
+                      prefHeight="180"
+                      style="-fx-background-color: transparent; -fx-border-width: 0;"/>
+        </VBox>
+
+        <!-- Divider -->
+        <Region styleClass="receipt-divider"/>
+
+        <!-- Total -->
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label text="TOTAL"
+                   styleClass="field-label"
+                   HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="receiptTotalLabel"
+                   text="₱0.00"
+                   style="-fx-font-size: 22px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #2563EB;"/>
+        </HBox>
+
+
+        <!-- Payment amount -->
+        <VBox spacing="4"
+              style="-fx-background-color: #F5F9FF;
+                     -fx-background-radius: 8;
+                     -fx-padding: 10 14;">
+
+            <Label text="AMOUNT TENDERED"
+                   styleClass="field-label"
+                   style="-fx-text-fill: #2563EB;"/>
+
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label text="₱"
+                       style="-fx-text-fill: #1D4ED8;
+                              -fx-font-size: 16px;
+                              -fx-font-weight: bold;"/>
+
+                <TextField fx:id="paymentField"
+                           promptText="0.00"
+                           HBox.hgrow="ALWAYS"
+                           onKeyReleased="#onPaymentKeyReleased"
+                           style="-fx-background-color: transparent;
+                                  -fx-border-width: 0;
+                                  -fx-font-size: 20px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #1D4ED8;
+                                  -fx-pref-height: 36px;"/>
+            </HBox>
+        </VBox>
+
+
+        
+        <!-- Change -->
+        <HBox alignment="CENTER_LEFT"
+              spacing="8"
+              style="-fx-padding: 8 4 0 4;">
+
+            <Label text="CHANGE"
+                   styleClass="field-label"
+                   HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="changeLabel"
+                   text="₱0.00"
+                   style="-fx-text-fill: #10B981;
+                          -fx-font-size: 16px;
+                          -fx-font-weight: bold;"/>
+        </HBox>
+
+
+        <!-- Error -->
+        <Label fx:id="receiptErrorLabel" text="" styleClass="label-error" wrapText="true"/>
+
+        <!-- Actions -->
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 4 0 0 0;">
+            <Button text="Cancel" styleClass="btn-secondary" onAction="#handleCancel"/>
+            <Button text="Confirm Payment  ✓" styleClass="btn-primary"
+                    style="-fx-pref-height: 44px; -fx-font-size: 14px;"
+                    onAction="#handleConfirmPayment"/>
+        </HBox>
+
+    </VBox>
+
+</VBox>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.pharmasystem.ui.LoginController"
+           styleClass="root-pane"
+           stylesheets="@login.css"
+           prefWidth="900"
+           prefHeight="600">
+
+    <!-- Left accent panel -->
+    <HBox styleClass="split-layout">
+
+        <!-- Left: Brand panel -->
+        <VBox styleClass="brand-panel" alignment="CENTER" HBox.hgrow="ALWAYS">
+            <VBox styleClass="brand-content" alignment="CENTER_LEFT">
+
+                <!-- Logo mark -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <StackPane styleClass="logo-mark">
+                        <Label text="Rx" styleClass="logo-symbol"/>
+                    </StackPane>
+                    <Label text="PhaRx" styleClass="brand-name"/>
+                </HBox>
+
+                <Region prefHeight="40"/>
+
+                <Label text="Pharmacy" styleClass="brand-headline-top" wrapText="true"/>
+                <Label text="Management" styleClass="brand-headline-mid" wrapText="true"/>
+                <Label text="System" styleClass="brand-headline-bot" wrapText="true"/>
+
+                <Region prefHeight="32"/>
+
+                <Label styleClass="brand-tagline"
+                       text="Precision. Clarity. Care."
+                       wrapText="true"/>
+            </VBox>
+
+            <!-- Decorative accent lines -->
+            <Region VBox.vgrow="ALWAYS"/>
+            <HBox styleClass="accent-dots" spacing="8" alignment="BOTTOM_LEFT">
+                <VBox.margin>
+                    <Insets left="48" bottom="40"/>
+                </VBox.margin>
+                <StackPane styleClass="dot dot-lg"/>
+                <StackPane styleClass="dot dot-md"/>
+                <StackPane styleClass="dot dot-sm"/>
+            </HBox>
+        </VBox>
+
+        <!-- Right: Login form panel -->
+        <VBox styleClass="form-panel" alignment="CENTER" HBox.hgrow="ALWAYS">
+            <VBox styleClass="form-card" alignment="CENTER_LEFT" spacing="0">
+
+                <Label text="Welcome back" styleClass="form-greeting"/>
+                <Label text="Sign in to your account" styleClass="form-subgreeting"/>
+
+                <Region prefHeight="36"/>
+
+                <!-- Username field -->
+                <Label text="USERNAME" styleClass="field-label"/>
+                <Region prefHeight="6"/>
+                <TextField fx:id="username"
+                           promptText="Enter your username"
+                           styleClass="form-field"/>
+
+                <Region prefHeight="20"/>
+
+                <!-- Password field -->
+                <Label text="PASSWORD" styleClass="field-label"/>
+                <Region prefHeight="6"/>
+                <PasswordField fx:id="password"
+                               promptText="Enter your password"
+                               styleClass="form-field"/>
+
+                <Region prefHeight="8"/>
+
+                <!-- Error label (hidden by default, shown via controller) -->
+                <Label fx:id="errorLabel"
+                       text=""
+                       styleClass="error-label"
+                       wrapText="true"/>
+
+                <Region prefHeight="28"/>
+
+                <!-- Login button -->
+                <Button fx:id="loginButton"
+                        text="Sign In"
+                        onAction="#handleLogin"
+                        styleClass="login-btn"
+                        maxWidth="Infinity"/>
+
+                <Region prefHeight="24"/>
+
+                <!-- Footer -->
+                <HBox alignment="CENTER" maxWidth="Infinity">
+                    <Label text="PhaRx v1.0  ·  Secure Access" styleClass="form-footer"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+
+    </HBox>
+
+</StackPane>

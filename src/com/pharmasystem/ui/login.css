@@ -1,0 +1,231 @@
+/* ============================================================
+   PhaRx — Login Screen Stylesheet
+   ============================================================ */
+
+/* ── Root / Scene ─────────────────────────────────────────── */
+.root {
+    -fx-font-family: "Segoe UI", "SF Pro Display", sans-serif;
+    -fx-background-color: #F4F6FA;
+}
+
+.root-pane {
+    -fx-background-color: #F4F6FA;
+}
+
+/* ── Split layout ─────────────────────────────────────────── */
+.split-layout {
+    -fx-pref-width: 900;
+    -fx-pref-height: 600;
+    -fx-background-color: #F4F6FA;
+}
+
+/* ── Brand Panel (Left) ───────────────────────────────────── */
+.brand-panel {
+    -fx-background-color: #0A1628;
+    -fx-min-width: 380;
+    -fx-max-width: 380;
+    -fx-pref-width: 380;
+}
+
+.brand-content {
+    -fx-padding: 0 48 0 48;
+}
+
+/* Logo */
+.logo-mark {
+    -fx-background-color: #2563EB;
+    -fx-background-radius: 10;
+    -fx-min-width: 44;
+    -fx-min-height: 44;
+    -fx-max-width: 44;
+    -fx-max-height: 44;
+}
+
+.logo-symbol {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.brand-name {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1.5;
+}
+
+/* Headline stacked text */
+.brand-headline-top,
+.brand-headline-mid,
+.brand-headline-bot {
+    -fx-font-size: 36px;
+    -fx-font-weight: 700;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-wrap-text: true;
+}
+
+.brand-headline-top {
+    -fx-text-fill: #FFFFFF;
+    -fx-opacity: 1.0;
+}
+
+.brand-headline-mid {
+    -fx-text-fill: #FFFFFF;
+    -fx-opacity: 0.55;
+}
+
+.brand-headline-bot {
+    -fx-text-fill: #2563EB;
+    -fx-opacity: 1.0;
+}
+
+.brand-tagline {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 12px;
+    -fx-letter-spacing: 2.5;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Accent dots */
+.accent-dots {
+    -fx-pref-height: 12;
+}
+
+.dot {
+    -fx-background-radius: 50;
+}
+
+.dot-lg {
+    -fx-background-color: #2563EB;
+    -fx-min-width: 10;
+    -fx-min-height: 10;
+    -fx-max-width: 10;
+    -fx-max-height: 10;
+}
+
+.dot-md {
+    -fx-background-color: #2563EB;
+    -fx-opacity: 0.5;
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+}
+
+.dot-sm {
+    -fx-background-color: #2563EB;
+    -fx-opacity: 0.2;
+    -fx-min-width: 6;
+    -fx-min-height: 6;
+    -fx-max-width: 6;
+    -fx-max-height: 6;
+}
+
+/* ── Form Panel (Right) ───────────────────────────────────── */
+.form-panel {
+    -fx-background-color: #F4F6FA;
+    -fx-padding: 40;
+}
+
+.form-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16;
+    -fx-padding: 44 44 36 44;
+    -fx-effect: dropshadow(gaussian, rgba(10,22,40,0.08), 24, 0, 0, 4);
+    -fx-max-width: 380;
+    -fx-pref-width: 380;
+}
+
+/* Greeting */
+.form-greeting {
+    -fx-text-fill: #0A1628;
+    -fx-font-size: 26px;
+    -fx-font-weight: 700;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.form-subgreeting {
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-padding: 4 0 0 0;
+}
+
+/* Field labels */
+.field-label {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1.8;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Input fields */
+.form-field {
+    -fx-pref-height: 46px;
+    -fx-max-width: Infinity;
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 8;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-font-size: 14px;
+    -fx-text-fill: #0A1628;
+    -fx-prompt-text-fill: #CBD5E1;
+    -fx-padding: 0 14 0 14;
+}
+
+.form-field:focused {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #2563EB;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.12), 8, 0, 0, 0);
+}
+
+/* Error label */
+.error-label {
+    -fx-text-fill: #EF4444;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-padding: 0 0 0 2;
+    -fx-wrap-text: true;
+    -fx-min-height: 16;
+}
+
+/* Login button */
+.login-btn {
+    -fx-pref-height: 48px;
+    -fx-background-color: #2563EB;
+    -fx-background-radius: 8;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.5;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.login-btn:hover {
+    -fx-background-color: #1D4ED8;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.30), 12, 0, 0, 3);
+}
+
+.login-btn:pressed {
+    -fx-background-color: #1E40AF;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.15), 6, 0, 0, 1);
+}
+
+.login-btn:disabled {
+    -fx-background-color: #93C5FD;
+    -fx-opacity: 0.7;
+}
+
+/* Footer */
+.form-footer {
+    -fx-text-fill: #CBD5E1;
+    -fx-font-size: 11px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.5;
+}
